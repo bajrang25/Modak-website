@@ -18,8 +18,8 @@ export const SHOP = {
      confirmed, and offers a button to ask for it. Plenty of home kitchens
      prefer this. Fill it in and it appears; same for the Maps link.       */
   pickup: {
-    addressHi: '',
-    addressEn: '',
+    addressHi: 'पेटला बुर्ज, चारमहल गुरुद्वारा, हैदराबाद',
+    addressEn: 'Petla Burj, Charmahal Gurudwara, Hyderabad',
 
     /* The shop's pin: 17°21'55.8"N 78°27'50.1"E.
        Everything map-related is built from these two numbers — the "view on

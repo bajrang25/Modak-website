@@ -270,7 +270,7 @@ export const I18N = {
     'pickup.mapAria': 'Map showing the Modak Aangan location',
     'pickup.ask': 'We will send you the full address on WhatsApp as soon as your order is confirmed.',
     'pickup.viaMap':
-      'Tap “Get directions” below and Maps will navigate you straight to us.',
+      'petla burj, Charmahal gurudwara',
     'pickup.delivery': 'Cannot come over? We deliver to your door too — just choose Delivery when you order.',
     'pickup.askCta': 'Ask for the address',
     'pickup.note':

@@ -74,9 +74,8 @@ right of the colon. If you add a key, add it to **both** `hi` and `en`.
       drives the countdown on the homepage.
 - [ ] Test the order form on your own phone — pickup and delivery — and check
       the WhatsApp message that arrives.
-- [ ] Optional: publish a street address by filling `SHOP.pickup.addressHi` /
-      `addressEn`. Left empty (the default) the page shows only the map pin and
-      a "Get directions" button, which many home kitchens prefer.
+- [ ] Optional: add a PIN code to `SHOP.pickup.addressHi` / `addressEn`. The
+      street address is published; only the postal code is missing.
 
 Done already: the `og:` link-preview tags point at the live URL, so sharing the
 link on WhatsApp shows the thali photo.
@@ -183,12 +182,19 @@ depends on their area and that you will quote it on the confirmation call,
 which matches how you actually work. If you ever want a flat charge displayed
 and added to the total, that needs a small change in the cart — ask for it.
 
-### Publishing a street address
+### The published street address
 
-`SHOP.pickup.addressHi` / `addressEn` are empty, so no street address appears
-publicly — only the map pin and an "Open in Google Maps" button. Fill them in
-and the written address shows too. Leaving them empty is a perfectly normal
-choice for a home kitchen.
+`SHOP.pickup.addressHi` / `addressEn` hold the shop's address, shown in the
+Location section next to the map pin:
+
+```
+पेटला बुर्ज, चारमहल गुरुद्वारा, हैदराबाद
+Petla Burj, Charmahal Gurudwara, Hyderabad
+```
+
+Clear both to go back to showing only the pin and a "Get directions" button —
+a perfectly normal choice for a home kitchen that would rather not publish an
+address. The map pin and directions work either way.
 
 ---
 
