@@ -1,0 +1,8 @@
+# Keep line endings consistent between Windows here and Netlify's Linux build.
+* text=auto eol=lf
+
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.ico  binary

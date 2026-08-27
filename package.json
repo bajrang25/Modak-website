@@ -1,0 +1,24 @@
+{
+  "name": "modak-aangan",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Modak Aangan — pre-order website. Orders arrive on WhatsApp.",
+  "scripts": {
+    "dev": "vite",
+    "images": "node scripts/optimize-images.mjs",
+    "prebuild": "node scripts/optimize-images.mjs",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.0",
+    "sharp": "^0.35.4",
+    "vite": "^8.2.2"
+  }
+}

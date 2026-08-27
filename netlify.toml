@@ -1,0 +1,30 @@
+# Netlify picks this up automatically when the repo is connected — no settings
+# to fill in by hand in the dashboard.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Pinned so `sharp` (the image shrinker) installs the right prebuilt binary.
+  NODE_VERSION = "22"
+
+# Vite fingerprints these filenames, so a changed file always gets a new name
+# and can be cached forever.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Photo filenames are NOT fingerprinted — a day is long enough to be fast and
+# short enough that swapping a photo shows up quickly.
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
