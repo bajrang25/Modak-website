@@ -1,5 +1,9 @@
 # मोडक आंगन — Modak Aangan
 
+**Live: https://deliciousmodak.netlify.app**
+
+Hosted on Netlify from `main`. Every push to `main` redeploys automatically.
+
 Pre-order website. A customer picks their modaks, fills a short form, and the
 order lands in your WhatsApp fully formatted. You call, confirm, they collect.
 
@@ -64,33 +68,44 @@ right of the colon. If you add a key, add it to **both** `hi` and `en`.
 
 ---
 
-## Before you go live — a short checklist
+## Still to do
 
-- [ ] Decide on the address. Left EMPTY (the default), the page tells customers
-      you will send it on WhatsApp and shows an "Ask for the address" button —
-      which many home kitchens prefer. Fill in `SHOP.pickup.addressHi` /
-      `addressEn` and it appears publicly instead.
-- [ ] If you do publish the address, set `SHOP.pickup.mapsUrl` too — the Maps
-      button only shows when both are set
-- [ ] Confirm `SHOP.festivalDate` is the correct Ganesh Chaturthi date
-- [ ] After deploying, put your real URL into the two `og:` tags in
-      `index.html` — WhatsApp needs an absolute address there or the shared
-      link shows no picture
-- [ ] Test the order form on your own phone and check the message that arrives
+- [ ] **Confirm `SHOP.festivalDate`** is the right Ganesh Chaturthi date. It
+      drives the countdown on the homepage.
+- [ ] Test the order form on your own phone — pickup and delivery — and check
+      the WhatsApp message that arrives.
+- [ ] Optional: publish a street address by filling `SHOP.pickup.addressHi` /
+      `addressEn`. Left empty (the default) the page shows only the map pin and
+      a "Get directions" button, which many home kitchens prefer.
+
+Done already: the `og:` link-preview tags point at the live URL, so sharing the
+link on WhatsApp shows the thali photo.
 
 ---
 
-## Putting it online (free)
+## Deploying a change
 
-1. `npm run build`
-2. Go to [app.netlify.com/drop](https://app.netlify.com/drop)
-3. Drag the **`dist`** folder onto the page
+The site rebuilds itself. There is no folder to drag any more:
 
-You get a URL like `modak-aangan.netlify.app` straight away. Put that in your
-Instagram bio and in your story link sticker.
+```bash
+# edit a price in src/data/shop.js, then
+git add -A
+git commit -m "Update paan modak prices"
+git push
+```
 
-To attach a real domain later (e.g. `modakaangan.in`), buy it and point it at
-the same Netlify site — nothing in the code has to change.
+Netlify sees the push, runs `npm run build`, and the live site updates in about
+a minute. Watch it under **Deploys** in the Netlify dashboard.
+
+`netlify.toml` holds the build settings, so there is nothing to configure in
+the dashboard by hand.
+
+### Attaching a real domain later
+
+Buy one (e.g. `modakaangan.in`) and add it under **Domain management** in
+Netlify. Nothing in the code changes — except the three absolute URLs in
+`index.html` (`og:url`, `og:image`, `canonical`), which should be updated to
+the new address so link previews keep working.
 
 ---
 
