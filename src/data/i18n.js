@@ -76,6 +76,8 @@ export const I18N = {
     'geo.pickMap': 'मैप पर चुनें',
     'geo.hide': 'मैप बंद करें',
     'geo.drag': 'पिन को खींचकर या मैप पर टैप करके अपनी सही जगह चुनें।',
+    'geo.mapLoading': 'मैप लोड हो रहा है…',
+    'geo.mapFailed': 'मैप लोड नहीं हो पाया। कृपया ऊपर वाले बॉक्स में अपना पता लिख दीजिए — वही काफ़ी है।',
     'geo.set': 'लोकेशन चुन ली गई',
     'geo.accuracy': 'लगभग',
     'geo.change': 'मैप पर बदलें',
@@ -96,6 +98,8 @@ export const I18N = {
     'err.date': 'कृपया तारीख़ चुनें।',
     'err.slot': 'कृपया समय चुनें।',
     'err.address': 'कृपया पता लिखें या मैप पर अपनी लोकेशन चुनें।',
+    'err.addressShort':
+      'पता थोड़ा और पूरा लिखिए — मकान/फ्लैट नं., गली और पास का लैंडमार्क। या मैप पर पिन लगा दीजिए।',
 
     'sent.title': 'WhatsApp खुल रहा है',
     'sent.body':
@@ -213,6 +217,8 @@ export const I18N = {
     'geo.pickMap': 'Choose on map',
     'geo.hide': 'Hide map',
     'geo.drag': 'Drag the pin, or tap the map, to place it exactly.',
+    'geo.mapLoading': 'Loading the map…',
+    'geo.mapFailed': 'The map could not load. Please just type your address in the box above — that is enough.',
     'geo.set': 'Location pinned',
     'geo.accuracy': 'about',
     'geo.change': 'Adjust on map',
@@ -233,6 +239,8 @@ export const I18N = {
     'err.date': 'Please choose a date.',
     'err.slot': 'Please choose a time.',
     'err.address': 'Please write the address or pick your location on the map.',
+    'err.addressShort':
+      'Please add a bit more — house/flat no., street and a nearby landmark. Or drop a pin on the map.',
 
     'sent.title': 'Opening WhatsApp',
     'sent.body':

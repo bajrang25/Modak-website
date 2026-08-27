@@ -1215,6 +1215,28 @@ a {
   text-align: center;
 }
 
+/* Overlay that says whether the map is coming or has given up — a bare
+   cream rectangle looks the same in both cases */
+.map-wrap {
+  position: relative;
+}
+.map-box__msg {
+  position: absolute;
+  inset: 0.75rem 1rem auto;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+.map-box__msg.is-failed {
+  color: var(--crimson);
+}
+
 /* isolation keeps Leaflet's very high internal z-indexes from climbing over
    the sticky header and the order dialog */
 .map-box {

@@ -23,6 +23,10 @@ export default function LocationPicker({ value, onChange }) {
   const [open, setOpen] = useState(false)
   const [locating, setLocating] = useState(false)
   const [error, setError] = useState(null)
+  /* idle | loading | ready | failed — without this a map that never arrives
+     looks exactly like one that is still coming, and the customer waits
+     forever on a blank rectangle. */
+  const [mapStatus, setMapStatus] = useState('idle')
 
   const boxRef = useRef(null)
   const mapRef = useRef(null)
@@ -71,41 +75,50 @@ export default function LocationPicker({ value, onChange }) {
     if (!open) return
     let cancelled = false
     let map
+    setMapStatus('loading')
 
     ;(async () => {
-      const [{ default: L }] = await Promise.all([
-        import('leaflet'),
-        import('leaflet/dist/leaflet.css'),
-      ])
-      if (cancelled || !boxRef.current) return
+      try {
+        const [{ default: L }] = await Promise.all([
+          import('leaflet'),
+          import('leaflet/dist/leaflet.css'),
+        ])
+        if (cancelled || !boxRef.current) return
 
-      const start = value ? [value.lat, value.lng] : (shopLatLng() ?? DEFAULT_CENTRE)
-      map = L.map(boxRef.current, { zoomControl: true }).setView(start, value ? 17 : 13)
+        const start = value ? [value.lat, value.lng] : (shopLatLng() ?? DEFAULT_CENTRE)
+        map = L.map(boxRef.current, { zoomControl: true }).setView(start, value ? 17 : 13)
 
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; OpenStreetMap',
-      }).addTo(map)
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; OpenStreetMap',
+        }).addTo(map)
 
-      const icon = L.divIcon({
-        className: 'map-pin',
-        html: PIN_SVG,
-        iconSize: [28, 37],
-        iconAnchor: [14, 37],
-      })
-      const marker = L.marker(start, { draggable: true, icon, autoPan: true }).addTo(map)
+        const icon = L.divIcon({
+          className: 'map-pin',
+          html: PIN_SVG,
+          iconSize: [28, 37],
+          iconAnchor: [14, 37],
+        })
+        const marker = L.marker(start, { draggable: true, icon, autoPan: true }).addTo(map)
 
-      const report = (ll) => onChangeRef.current({ lat: round(ll.lat), lng: round(ll.lng), accuracy: null })
-      marker.on('dragend', () => report(marker.getLatLng()))
-      map.on('click', (e) => {
-        marker.setLatLng(e.latlng)
-        report(e.latlng)
-      })
+        const report = (ll) =>
+          onChangeRef.current({ lat: round(ll.lat), lng: round(ll.lng), accuracy: null })
+        marker.on('dragend', () => report(marker.getLatLng()))
+        map.on('click', (e) => {
+          marker.setLatLng(e.latlng)
+          report(e.latlng)
+        })
 
-      mapRef.current = map
-      markerRef.current = marker
-      /* The container animates open, so Leaflet measures it too early. */
-      setTimeout(() => map.invalidateSize(), 60)
+        mapRef.current = map
+        markerRef.current = marker
+        setMapStatus('ready')
+        /* The container animates open, so Leaflet measures it too early. */
+        setTimeout(() => map.invalidateSize(), 60)
+      } catch {
+        /* Chunk never arrived, or Leaflet threw. Say so and point at the
+           typed-address escape route — never leave a silent blank box. */
+        if (!cancelled) setMapStatus('failed')
+      }
     })()
 
     return () => {
@@ -113,6 +126,7 @@ export default function LocationPicker({ value, onChange }) {
       if (map) map.remove()
       mapRef.current = null
       markerRef.current = null
+      setMapStatus('idle')
     }
     // `value` is only the opening view; re-running on every drag would fight the pin
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -168,8 +182,17 @@ export default function LocationPicker({ value, onChange }) {
 
       {open && (
         <>
-          <div className="map-box" ref={boxRef} role="application" aria-label={t('geo.title')} />
-          <p className="geo__hint">{t('geo.drag')}</p>
+          <div className="map-wrap">
+            <div className="map-box" ref={boxRef} role="application" aria-label={t('geo.title')} />
+            {mapStatus !== 'ready' && (
+              <p className={`map-box__msg ${mapStatus === 'failed' ? 'is-failed' : ''}`} role="status">
+                {mapStatus === 'failed' ? t('geo.mapFailed') : t('geo.mapLoading')}
+              </p>
+            )}
+          </div>
+          {/* Telling someone to drag a pin they cannot see is worse than
+              saying nothing. */}
+          {mapStatus === 'ready' && <p className="geo__hint">{t('geo.drag')}</p>}
         </>
       )}
     </div>

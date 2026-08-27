@@ -18,6 +18,25 @@ const EMPTY = {
   geo: null, // { lat, lng, accuracy } once a pin is dropped
 }
 
+/* Top-to-bottom order of the fields, so a failed submit can jump to the
+   first thing that is actually wrong. */
+const FIELD_ORDER = ['name', 'phone', 'date', 'slot', 'address']
+
+/**
+ * People paste their number straight out of WhatsApp, where it carries a
+ * country code. Blindly keeping the first ten digits turns "+91 8688439375"
+ * into "9186884393" — ten digits, starts with 9, passes validation, and is
+ * the wrong number. Strip the prefix before truncating.
+ * Length is what makes this safe: a real 10-digit number beginning "91"
+ * is length 10, never 12, so it is left alone.
+ */
+function normalisePhone(raw) {
+  let d = String(raw).replace(/\D/g, '')
+  if (d.length === 12 && d.startsWith('91')) d = d.slice(2) // +91 / 0091
+  else if (d.length === 11 && d.startsWith('0')) d = d.slice(1) // STD leading 0
+  return d.slice(0, 10)
+}
+
 export default function OrderForm({ cart }) {
   const { t, lang, pick } = useLang()
   const [form, setForm] = useState(EMPTY)
@@ -25,12 +44,17 @@ export default function OrderForm({ cart }) {
   const [sent, setSent] = useState(null) // { ref, url }
 
   const set = (field) => (e) => {
-    const value = field === 'phone' ? e.target.value.replace(/\D/g, '').slice(0, 10) : e.target.value
+    const value = field === 'phone' ? normalisePhone(e.target.value) : e.target.value
     setForm((f) => ({ ...f, [field]: value }))
     setErrors((err) => (err[field] ? { ...err, [field]: undefined } : err))
   }
 
   const isDelivery = SHOP.deliveryEnabled && form.mode === 'delivery'
+
+  /* Every live error, in field order. filter(Boolean) drops the `undefined`
+     placeholders the clearing logic leaves behind, so this empties out as
+     soon as the last real problem is fixed. */
+  const errorList = ['cart', ...FIELD_ORDER].map((k) => errors[k]).filter(Boolean)
 
   const validate = () => {
     const e = {}
@@ -41,9 +65,11 @@ export default function OrderForm({ cart }) {
     if (!form.slot) e.slot = t('err.slot')
     /* Either is enough on its own: a map pin gets the rider to the gate,
        a written address gets them to the door. A one-word "home" does
-       neither, so short text without a pin does not count. */
+       neither, so short text without a pin does not count.
+       Two different messages: telling someone who HAS typed an area name to
+       "write the address" is maddening — they think they just did. */
     if (isDelivery && !form.geo && form.address.trim().length < 12) {
-      e.address = t('err.address')
+      e.address = form.address.trim() ? t('err.addressShort') : t('err.address')
     }
     return e
   }
@@ -53,7 +79,17 @@ export default function OrderForm({ cart }) {
     const found = validate()
     setErrors(found)
     if (Object.keys(found).length > 0) {
-      if (found.cart) document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })
+      /* Take the customer to whatever is wrong. Without this the button just
+         looks broken: the error renders beside a field that is far off-screen
+         on a phone, especially with the delivery map open. */
+      if (found.cart) {
+        document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })
+      } else {
+        const first = FIELD_ORDER.find((k) => found[k])
+        document
+          .getElementById(`f-${first}`)
+          ?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
       return
     }
 
@@ -233,9 +269,11 @@ export default function OrderForm({ cart }) {
           />
         </div>
 
-        {errors.cart && (
-          <p className="field__err" style={{ marginBottom: '0.75rem' }}>
-            {errors.cart}
+        {/* A summary right above the button, so a failed tap always produces
+            visible feedback without the customer having to scroll. */}
+        {errorList.length > 0 && (
+          <p className="field__err" role="alert" style={{ marginBottom: '0.75rem' }}>
+            {errorList.join(' ')}
           </p>
         )}
 
