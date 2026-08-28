@@ -17,7 +17,7 @@ export default function Hero() {
           </span>
 
           <h1 className="hero__logo">
-            {isHi ? 'मोडक' : 'Modak'}
+            {isHi ? 'मोदक' : 'Modak'}
             <span className="sep">❖</span>
             <span className="aangan">{isHi ? 'आंगन' : 'Aangan'}</span>
           </h1>
