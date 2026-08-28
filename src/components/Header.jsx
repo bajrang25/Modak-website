@@ -21,7 +21,7 @@ export default function Header() {
           <span className="brand__name">
             {isHi ? (
               <>
-                मोडक <em>आंगन</em>
+                मोदक <em>आंगन</em>
               </>
             ) : (
               <>
