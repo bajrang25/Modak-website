@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="footer__grid">
           <div>
             <p className="footer__logo">
-              {isHi ? 'मोडक ' : 'Modak '}
+              {isHi ? 'मोदक ' : 'Modak '}
               <em>{isHi ? 'आंगन' : 'Aangan'}</em>
             </p>
             <p className="footer__tag">{t('hero.tagline')}</p>
@@ -70,7 +70,7 @@ export default function Footer() {
       </div>
 
       <p className="footer__copy">
-        © {year} {isHi ? 'मोडक आंगन' : 'Modak Aangan'} — {t('foot.rights')}
+        © {year} {isHi ? 'मोदक आंगन' : 'Modak Aangan'} — {t('foot.rights')}
       </p>
     </footer>
   )
