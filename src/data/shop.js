@@ -1,5 +1,5 @@
 /* ==========================================================================
-   मोडक आंगन — MODAK AANGAN
+   मोदक आंगन — MODAK AANGAN
    --------------------------------------------------------------------------
    THIS IS THE ONLY FILE YOU NEED FOR DAY-TO-DAY CHANGES.
    Change a price, add a variety, update the address — all right here.
@@ -12,11 +12,11 @@ export const SHOP = {
   phoneDisplay: '86884 39375',
   instagram: 'modak_aangan',
 
-  /* --- Pickup details (shown in the Pickup section) --------------------
-     Leave the address EMPTY to keep it off the public page — the site then
-     tells customers you will send the address on WhatsApp once the order is
-     confirmed, and offers a button to ask for it. Plenty of home kitchens
-     prefer this. Fill it in and it appears; same for the Maps link.       */
+  /* --- Pickup details (shown in the Location section) ------------------
+     Set both address lines to '' to keep the written address off the public
+     page — the map pin and the "Get directions" button keep working, and the
+     page instead offers to send the address on WhatsApp. Plenty of home
+     kitchens prefer that.                                                 */
   pickup: {
     addressHi: 'पेटला बुर्ज, चारमहल गुरुद्वारा, हैदराबाद',
     addressEn: 'Petla Burj, Charmahal Gurudwara, Hyderabad',

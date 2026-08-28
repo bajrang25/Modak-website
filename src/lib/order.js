@@ -47,7 +47,7 @@ export function buildOrderMessage({ ref, lines, total, totalPieces, form, lang, 
   const cur = SHOP.currency
   const L = []
 
-  L.push(hi ? '*नया ऑर्डर — मोडक आंगन*' : '*New order — Modak Aangan*')
+  L.push(hi ? '*नया ऑर्डर — मोदक आंगन*' : '*New order — Modak Aangan*')
   L.push(`${hi ? 'ऑर्डर नं.' : 'Order no.'} ${ref}`)
   L.push('')
 

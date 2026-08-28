@@ -1,6 +1,6 @@
-# मोडक आंगन — Modak Aangan
+# मोदक आंगन — Modak Aangan
 
-**Live: https://deliciousmodak.netlify.app**
+**Live: https://modakaangan.netlify.app**
 
 Hosted on Netlify from `main`. Every push to `main` redeploys automatically.
 
