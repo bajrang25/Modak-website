@@ -50,9 +50,9 @@ export const I18N = {
     'order.clear': 'सब हटाएँ',
 
     'form.name': 'आपका नाम',
-    'form.namePh': 'जैसे: राहुल शर्मा',
+    'form.namePh': 'जैसे: विक्की',
     'form.phone': 'WhatsApp नंबर',
-    'form.phonePh': '10 अंकों का नंबर',
+    'form.phonePh': 'जैसे: 9779008964',
     'form.date': 'कब चाहिए?',
     'form.slotPickup': 'पिकअप का समय',
     'form.slotDelivery': 'डिलीवरी का समय',
@@ -191,9 +191,9 @@ export const I18N = {
     'order.clear': 'Clear all',
 
     'form.name': 'Your name',
-    'form.namePh': 'e.g. Rahul Sharma',
+    'form.namePh': 'e.g. Vicky',
     'form.phone': 'WhatsApp number',
-    'form.phonePh': '10-digit number',
+    'form.phonePh': 'e.g. 9779008964',
     'form.date': 'When do you need it?',
     'form.slotPickup': 'Pickup time',
     'form.slotDelivery': 'Delivery time',
