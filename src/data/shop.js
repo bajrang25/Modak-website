@@ -8,8 +8,8 @@
 
 export const SHOP = {
   /* --- Contact -------------------------------------------------------- */
-  whatsapp: '918688439375', // country code + number. No "+", no spaces.
-  phoneDisplay: '86884 39375',
+  whatsapp: '917989007378', // country code + number. No "+", no spaces.
+  phoneDisplay: '79890 07378',
   instagram: 'modak_aangan',
 
   /* --- Pickup details (shown in the Location section) ------------------
