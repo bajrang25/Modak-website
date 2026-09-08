@@ -19,7 +19,7 @@ export default function Hero() {
           <h1 className="hero__logo">
             {isHi ? 'मोदक' : 'Modak'}
             <span className="sep">❖</span>
-            <span className="aangan">{isHi ? 'आंगन' : 'Aangan'}</span>
+            <span className="bhavan">{isHi ? 'भवन' : 'Bhavan'}</span>
           </h1>
           <p className="hero__tagline">{t('hero.tagline')}</p>
 

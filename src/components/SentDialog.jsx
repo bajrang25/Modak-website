@@ -37,6 +37,7 @@ export default function SentDialog({ orderRef, url, onDismiss, onDone }) {
         <h3 className="dialog__title">{t('sent.title')}</h3>
         <span className="dialog__ref">{orderRef}</span>
         <p className="dialog__body">{t('sent.body')}</p>
+        <p className="dialog__pay">{t('sent.pay')}</p>
         <a className="dialog__retry" href={url} target="_blank" rel="noopener noreferrer">
           {t('sent.retry')}
         </a>

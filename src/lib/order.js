@@ -47,7 +47,7 @@ export function buildOrderMessage({ ref, lines, total, totalPieces, form, lang, 
   const cur = SHOP.currency
   const L = []
 
-  L.push(hi ? '*नया ऑर्डर — मोदक आंगन*' : '*New order — Modak Aangan*')
+  L.push(hi ? '*नया ऑर्डर — मोदक भवन*' : '*New order — Modak Bhavan*')
   L.push(`${hi ? 'ऑर्डर नं.' : 'Order no.'} ${ref}`)
   L.push('')
 
@@ -64,6 +64,13 @@ export function buildOrderMessage({ ref, lines, total, totalPieces, form, lang, 
   L.push('')
 
   L.push(`*${hi ? 'कुल' : 'Total'}: ${cur}${total}*  (${totalPieces} ${t('menu.pieces')})`)
+  /* Payment is settled by hand, on this chat or a call. This line is for the
+     shop rather than the customer: during festival week a dozen orders sit in
+     the inbox at once, and each one carries its own reminder that the money
+     has not been collected yet. */
+  L.push(
+    `*${hi ? 'पेमेंट' : 'Payment'}:* ${hi ? 'चैट/कॉल पर तय करना है' : 'to settle on chat/call'}`
+  )
   L.push('')
 
   L.push(`*${hi ? 'कब चाहिए' : 'Needed on'}:* ${formatDate(form.date, lang)}`)

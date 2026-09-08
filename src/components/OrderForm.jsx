@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { SHOP } from '../data/shop'
 import { useLang } from '../context/LanguageContext'
 import { earliestOrderDate, makeOrderRef, submitOrder } from '../lib/order'
-import { IconInfo, IconWhatsApp, IconStore, IconScooter } from './Icons'
+import { IconInfo, IconWhatsApp, IconStore, IconScooter, IconPhone } from './Icons'
 import SentDialog from './SentDialog'
 import LocationPicker from './LocationPicker'
 
@@ -268,6 +268,14 @@ export default function OrderForm({ cart }) {
             onChange={set('notes')}
           />
         </div>
+
+        {/* Payment is a human step, not a screen. It has to be said before the
+            tap, not after it — the cart shows a total, so without this line the
+            customer is waiting for a payment page that never arrives. */}
+        <p className="form__note form__note--pay">
+          <IconPhone width="18" height="18" style={{ flex: 'none', marginTop: 2 }} />
+          {t('form.payNote')}
+        </p>
 
         {/* A summary right above the button, so a failed tap always produces
             visible feedback without the customer having to scroll. */}

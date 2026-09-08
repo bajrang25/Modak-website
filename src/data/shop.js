@@ -1,5 +1,5 @@
 /* ==========================================================================
-   मोदक आंगन — MODAK AANGAN
+   मोदक भवन — Modak Bhavan
    --------------------------------------------------------------------------
    THIS IS THE ONLY FILE YOU NEED FOR DAY-TO-DAY CHANGES.
    Change a price, add a variety, update the address — all right here.
@@ -10,7 +10,7 @@ export const SHOP = {
   /* --- Contact -------------------------------------------------------- */
   whatsapp: '917989007378', // country code + number. No "+", no spaces.
   phoneDisplay: '79890 07378',
-  instagram: 'modak_aangan',
+  instagram: 'modakbhavan',
 
   /* --- Pickup details (shown in the Location section) ------------------
      Set both address lines to '' to keep the written address off the public
