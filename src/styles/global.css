@@ -1,5 +1,5 @@
 /* ==========================================================================
-   मोडक आंगन — Modak Aangan
+   मोडक भवन — Modak Bhavan
    Palette sampled directly from the shop's poster:
      oxblood maroon #7B1523 · antique gold #C9A227 · parchment #FBF1DC
      forest green   #2E4A2A · chocolate   #4A251A · marigold  #E8952A
@@ -389,7 +389,7 @@ a {
   color: var(--ink);
   margin-block: 1.1rem 0.35rem;
 }
-.hero__logo .aangan {
+.hero__logo .bhavan {
   color: var(--maroon-800);
 }
 .hero__logo .sep {
@@ -1379,6 +1379,17 @@ a {
   padding: 0.7rem 0.85rem;
   margin-bottom: 1.1rem;
 }
+/* The payment note sits directly above the WhatsApp button, so it borrows the
+   button's green rather than the gold of the pickup/delivery note — two
+   identical gold boxes on one form and the second one stops being read. */
+.form__note--pay {
+  color: var(--wa-dark);
+  background: rgba(37, 211, 102, 0.11);
+  border: 1px solid rgba(18, 140, 126, 0.35);
+}
+.form__note--pay svg {
+  color: var(--wa-dark);
+}
 
 /* --------------------------------------------------------------------------
    Why us
@@ -1714,6 +1725,15 @@ a {
 .dialog__body {
   color: var(--ink-soft);
   font-size: 0.96rem;
+}
+.dialog__pay {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--wa-dark);
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(18, 140, 126, 0.3);
+  border-radius: var(--r-sm);
+  padding: 0.6rem 0.8rem;
 }
 .dialog__retry {
   font-size: 0.88rem;

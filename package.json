@@ -1,9 +1,9 @@
 {
-  "name": "modak-aangan",
+  "name": "modak-bhavan",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Modak Aangan — pre-order website. Orders arrive on WhatsApp.",
+  "description": "Modak Bhavan — pre-order website. Orders arrive on WhatsApp.",
   "scripts": {
     "dev": "vite",
     "images": "node scripts/optimize-images.mjs",

@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { I18N } from '../data/i18n'
 
 const LanguageContext = createContext(null)
-const STORAGE_KEY = 'modak-aangan:lang'
+const STORAGE_KEY = 'modak-bhavan:lang'
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState(() => {

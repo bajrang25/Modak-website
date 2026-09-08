@@ -1,6 +1,6 @@
-# मोदक आंगन — Modak Aangan
+# मोदक भवन — Modak Bhavan
 
-**Live: https://modakaangan.netlify.app**
+**Live: https://gharkemodak.netlify.app**
 
 Hosted on Netlify from `main`. Every push to `main` redeploys automatically.
 
@@ -101,7 +101,7 @@ the dashboard by hand.
 
 ### Attaching a real domain later
 
-Buy one (e.g. `modakaangan.in`) and add it under **Domain management** in
+Buy one (e.g. `modakbhavan.in`) and add it under **Domain management** in
 Netlify. Nothing in the code changes — except the three absolute URLs in
 `index.html` (`og:url`, `og:image`, `canonical`), which should be updated to
 the new address so link previews keep working.

@@ -52,7 +52,7 @@ export const I18N = {
     'form.name': 'आपका नाम',
     'form.namePh': 'जैसे: विक्की',
     'form.phone': 'WhatsApp नंबर',
-    'form.phonePh': 'जैसे: 9779008964',
+    'form.phonePh': 'जैसे: 9777009964',
     'form.date': 'कब चाहिए?',
     'form.slotPickup': 'पिकअप का समय',
     'form.slotDelivery': 'डिलीवरी का समय',
@@ -91,6 +91,8 @@ export const I18N = {
       'ऑर्डर तैयार होने पर आप उसे नीचे दी गई लोकेशन से ले सकते हैं।',
     'form.deliveryNote':
       'डिलीवरी चार्ज आपके इलाके के हिसाब से लगेगा — कन्फर्मेशन कॉल पर बता देंगे।',
+    'form.payNote':
+      'ऑनलाइन पेमेंट नहीं है — ऑर्डर और पेमेंट WhatsApp चैट या कॉल पर तय होंगे।',
 
     'err.empty': 'कृपया पहले मेन्यू से मोदक चुनें।',
     'err.name': 'कृपया अपना नाम लिखें।',
@@ -104,10 +106,11 @@ export const I18N = {
     'sent.title': 'WhatsApp खुल रहा है',
     'sent.body':
       'आपका ऑर्डर WhatsApp में तैयार है। बस भेजें दबाएँ — तभी हमें ऑर्डर मिलेगा।',
+    'sent.pay': 'भेजने के बाद हम जवाब देकर ऑर्डर और पेमेंट कन्फर्म करेंगे।',
     'sent.retry': 'WhatsApp नहीं खुला? यहाँ दबाएँ',
     'sent.close': 'ठीक है',
 
-    'why.eyebrow': 'क्यों मोदक आंगन',
+    'why.eyebrow': 'क्यों मोदक भवन',
     'why.title': 'हर मोदक में हमारा भरोसा',
     'why.1t': 'ताज़ा और ऑर्डर पर बनाया जाता है',
     'why.1b': 'हर मोदक स्वच्छता और देखभाल के साथ तैयार किया जाता है।',
@@ -126,7 +129,7 @@ export const I18N = {
     'pickup.directions': 'रास्ता देखें',
     'pickup.showMap': 'मैप पर देखें',
     'pickup.hideMap': 'मैप बंद करें',
-    'pickup.mapAria': 'मोदक आंगन की लोकेशन का मैप',
+    'pickup.mapAria': 'मोदक भवन की लोकेशन का मैप',
     'pickup.ask': 'ऑर्डर कन्फर्म होते ही हम आपको WhatsApp पर पूरा पता भेज देंगे।',
     'pickup.viaMap':
       'नीचे “रास्ता देखें” दबाइए — गूगल मैप्स सीधे हम तक का रास्ता दिखा देगा।',
@@ -193,7 +196,7 @@ export const I18N = {
     'form.name': 'Your name',
     'form.namePh': 'e.g. Vicky',
     'form.phone': 'WhatsApp number',
-    'form.phonePh': 'e.g. 9779008964',
+    'form.phonePh': 'e.g. 9777009964',
     'form.date': 'When do you need it?',
     'form.slotPickup': 'Pickup time',
     'form.slotDelivery': 'Delivery time',
@@ -232,6 +235,8 @@ export const I18N = {
       'Collect your order from the location below once it is ready.',
     'form.deliveryNote':
       'Delivery charge depends on your area — we will tell you on the confirmation call.',
+    'form.payNote':
+      'No online payment — we settle the order and the payment on WhatsApp chat or a call.',
 
     'err.empty': 'Please pick some modaks from the menu first.',
     'err.name': 'Please enter your name.',
@@ -245,10 +250,11 @@ export const I18N = {
     'sent.title': 'Opening WhatsApp',
     'sent.body':
       'Your order is ready in WhatsApp. Just press Send — we only receive it after that.',
+    'sent.pay': "After you send it, we'll reply to confirm the order and the payment.",
     'sent.retry': 'WhatsApp did not open? Tap here',
     'sent.close': 'Got it',
 
-    'why.eyebrow': 'Why Modak Aangan',
+    'why.eyebrow': 'Why Modak Bhavan',
     'why.title': 'Our promise in every modak',
     'why.1t': 'Fresh, made to order',
     'why.1b': 'Every modak is prepared with care and full hygiene.',
@@ -267,7 +273,7 @@ export const I18N = {
     'pickup.directions': 'Get directions',
     'pickup.showMap': 'Show on map',
     'pickup.hideMap': 'Hide map',
-    'pickup.mapAria': 'Map showing the Modak Aangan location',
+    'pickup.mapAria': 'Map showing the Modak Bhavan location',
     'pickup.ask': 'We will send you the full address on WhatsApp as soon as your order is confirmed.',
     'pickup.viaMap':
       'petla burj, Charmahal gurudwara',
