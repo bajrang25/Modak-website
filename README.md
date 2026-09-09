@@ -1,6 +1,6 @@
 # मोदक भवन — Modak Bhavan
 
-**Live: https://gharkemodak.netlify.app**
+**Live: https://modakbhavan.netlify.app**
 
 Hosted on Netlify from `main`. Every push to `main` redeploys automatically.
 
