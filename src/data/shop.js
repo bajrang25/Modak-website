@@ -10,7 +10,7 @@ export const SHOP = {
   /* --- Contact -------------------------------------------------------- */
   whatsapp: '917989007378', // country code + number. No "+", no spaces.
   phoneDisplay: '79890 07378',
-  instagram: 'modakbhavan',
+  instagram: 'modak_bhavan',
 
   /* --- Pickup details (shown in the Location section) ------------------
      Set both address lines to '' to keep the written address off the public
